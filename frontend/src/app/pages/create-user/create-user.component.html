@@ -1,0 +1,6 @@
+<form>
+  <input type="text" [(ngModel)]="username" name="username" placeholder="Username">
+  <input type="password" [(ngModel)]="password" name="password" placeholder="Password">
+  <input type="password" [(ngModel)]="confirmPassword" name="confirmPassword" placeholder="Confirm Password">
+  <button (click)="enviInfos($event)">Create</button>
+</form>

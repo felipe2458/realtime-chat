@@ -62,14 +62,14 @@ export default class UserController{
             const user = await UserService.findByUsername(username);
 
             if(!user){
-                res.status(400).json({error: 'User not found'});
+                res.status(404).json({error: 'User not found'});
                 return;
             }
 
             const isMatch = await bcript.compare(password, user.password);
 
             if(!isMatch){
-                res.status(400).json({error: 'Incorrect password'});
+                res.status(401).json({error: 'Incorrect password'});
                 return;
             }
 

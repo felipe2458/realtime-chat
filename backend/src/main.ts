@@ -22,10 +22,10 @@ const io = new SocketServer(server, {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// app.use(cors({
-//     origin: allowedOrigin,
-//     methods: ['GET', 'POST', 'DELETE', 'PUT'],
-// }));
+app.use(cors({
+    origin: allowedOrigin,
+    methods: ['GET', 'POST', 'DELETE', 'PUT'],
+}));
 
 app.use('/api/users', UserRoute);
 app.use('/api/messages', MessageRoute);
