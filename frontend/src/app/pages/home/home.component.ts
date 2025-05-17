@@ -1,11 +1,44 @@
 import { Component } from '@angular/core';
+import { jwtDecode } from 'jwt-decode';
+import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
+import { Links } from '../../interface/interface';
+import { GetInfosFrontService } from '../../services/getinfos-front/get-infos-front.service';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [CommonModule, RouterLink, RouterOutlet],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+  name: string = '';
+  isAsideOpen: boolean = true;
+  recents_chats: any[] = [];
+  links: Links[] = [];
 
+  constructor(private getInfosFrontService: GetInfosFrontService){
+    this.getInfosFrontService.getLinks().subscribe(links => {
+      this.links = links;
+    });
+
+    const token = localStorage.getItem('token');
+    const isAsideOpen = localStorage.getItem('isAsideOpen');
+
+    if(token){
+      const decoded: any = jwtDecode(token);
+      this.name = decoded.username;
+    }
+
+    if(isAsideOpen){
+      this.isAsideOpen = JSON.parse(isAsideOpen);
+    }
+  }
+
+  openAside(){
+    this.isAsideOpen = !this.isAsideOpen;
+
+    localStorage.setItem('isAsideOpen', JSON.stringify(this.isAsideOpen));
+  }
 }

@@ -1,0 +1,5 @@
+[
+  { "name": "Settings", "path": "settings" },
+  { "name": "find users", "path": "find-users" },
+  { "name": "friend requests", "path": "friend-requests" }
+]

@@ -1,1 +1,49 @@
-<p>home works!</p>
+<div class="container">
+  <aside [ngStyle]="{ 'width': isAsideOpen ? '20%' : '0' }">
+    <div class="overflow-aside">
+    @if(recents_chats.length > 0){
+        <div class="container-recent-chats">
+        <header>
+          <h3>recent chats:</h3>
+        </header>
+
+        @for(chat of recents_chats; track chat){
+          <a [routerLink]="chat.link_user" class="recent-chat-wrapper">
+            <div class="icon-user" [ngStyle]="{ 'background-image': chat.userImg ? 'url('+ chat.userImg +')' : 'url(/imgs/userDefalt.png)' }"></div><!-- icon-user -->
+            <div class="username-wrapper">
+              <h3>{{ chat.username }}</h3>
+            </div><!-- username-wrapper -->
+          </a><!-- recent-chat-wrapper -->
+        }
+      </div><!-- container-recent-chats -->
+    }
+
+      <nav class="container-links">
+        <header>
+          <h3>Menu</h3>
+        </header>
+        @for(link of links; track link){
+          <a [routerLink]="link.path" class="link-wrapper">
+            <p>{{ link.name }}</p>
+          </a><!-- link-wrapper -->
+        }
+      </nav>
+    </div><!-- overflow-aside -->
+
+    <button [title]="isAsideOpen ? 'Close menu' : 'Open menu'" (click)="openAside()">
+      @if(isAsideOpen){
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polyline points="16 4 8 12 16 20" stroke="#aaaaaa" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      }@else{
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polyline points="8 4 16 12 8 20" stroke="#aaaaaa" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      }
+    </button>
+  </aside>
+
+  <main [ngStyle]="{ 'width': isAsideOpen ? '80%' : '100%' }">
+    <router-outlet></router-outlet>
+  </main>
+</div><!-- container -->
