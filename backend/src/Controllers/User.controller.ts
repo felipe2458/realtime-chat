@@ -2,14 +2,14 @@ import jwt from 'jsonwebtoken';
 import bcript from 'bcrypt';
 import { promises as fs } from 'fs';
 import { Request, Response } from 'express'
-import { User } from '../interface/interface.ts';
+import { User, UserNotPassword } from '../interface/interface.ts';
 import UserService from '../Services/user.service.ts';
 
 export default class UserController{
     static async getAllUsers(req: Request, res: Response){
         try{
             const users: User[] = await UserService.getAllUsers();
-            res.status(200).json(users);
+            res.status(200).json(users.map(({ password, ...user }) => user));
         }catch(err){
             console.error(err);
             res.status(500).json({error: 'Error fetching users'});
@@ -24,7 +24,7 @@ export default class UserController{
         }
 
         try{
-            const users = await UserService.getAllUsers();
+            const users: User[] = await UserService.getAllUsers();
             const userExists = await UserService.findByUsername(username);
 
             if(userExists){
@@ -59,7 +59,7 @@ export default class UserController{
         }
 
         try{
-            const user = await UserService.findByUsername(username);
+            const user: User | undefined = await UserService.findByUsername(username);
 
             if(!user){
                 res.status(404).json({error: 'User not found'});

@@ -6,12 +6,13 @@ import { ChatComponent } from './pages/home/components/chat/chat.component';
 import { SettingsComponent } from './pages/home/components/settings/settings.component';
 import { FindUsersComponent } from './pages/home/components/find-users/find-users.component';
 import { FriendRequestsComponent } from './pages/home/components/friend-requests/friend-requests.component';
+import { guardTokenGuard } from './guard/guardToken/guard-token.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'create-user', pathMatch: 'full' },
   { path: 'create-user', component: CreateUserComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent, children: [
+  { path: 'home', component: HomeComponent, canActivate: [guardTokenGuard], canActivateChild: [guardTokenGuard], children: [
     { path: '', redirectTo: 'settings', pathMatch: 'full' },
     { path: 'chat/:id', component: ChatComponent },
     { path: 'settings', component: SettingsComponent },
