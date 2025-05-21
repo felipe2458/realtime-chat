@@ -125,7 +125,7 @@ aside button{
   background-color: transparent;
   position: absolute;
   left: 100%;
-  top: 10%;
+  top: 15%;
   cursor: pointer;
   border: 2px solid var(--color-border-aside-button);
   border-left: none;

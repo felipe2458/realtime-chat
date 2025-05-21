@@ -1,7 +1,7 @@
 import path from "path";
-import { promises as fs } from 'fs'
+import { promises as fs } from 'fs';
 
-export default class JsonReaderService{
+export default class JsonReaderService {
     private filePath: string;
 
     constructor(filePath: string){
@@ -9,7 +9,17 @@ export default class JsonReaderService{
     }
 
     async readJson<T>(): Promise<T>{
-        const data = await fs.readFile(this.filePath, 'utf-8');
-        return JSON.parse(data) as T;   
+        try{
+            const data = await fs.readFile(this.filePath, 'utf-8');
+
+            if(!data.trim()){
+                return [] as T;
+            }
+
+            return JSON.parse(data) as T;
+        }catch(err){
+            console.error('Erro ao ler ou parsear JSON:', err);
+            return [] as T;
+        }
     }
 }

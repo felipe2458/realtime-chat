@@ -1,5 +1,7 @@
 [
   { "name": "Settings", "path": "settings" },
-  { "name": "find users", "path": "find-users" },
-  { "name": "friend requests", "path": "friend-requests" }
+  { "name": "Find users", "path": "find-users" },
+  { "name": "Friend requests", "path": "friend-requests" },
+  { "name": "friend requests sent", "path": "friend-request-sent" },
+  { "name": "Friends list", "path": "friends-list" }
 ]

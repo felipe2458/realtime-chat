@@ -5,6 +5,7 @@ import { RouterLink } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
 import { Links } from '../../interface/interface';
 import { GetInfosFrontService } from '../../services/getinfos-front/get-infos-front.service';
+import { SocketService } from '../../services/socket/socket.service';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,7 @@ export class HomeComponent {
   recents_chats: any[] = [];
   links: Links[] = [];
 
-  constructor(private getInfosFrontService: GetInfosFrontService){
+  constructor(private getInfosFrontService: GetInfosFrontService, private socketService: SocketService){
     this.getInfosFrontService.getLinks().subscribe(links => {
       this.links = links;
     });
@@ -34,6 +35,10 @@ export class HomeComponent {
     if(isAsideOpen){
       this.isAsideOpen = JSON.parse(isAsideOpen);
     }
+
+    this.socketService.sendEvent('username', this.name);
+
+    this.socketService.listenEvent('friendRequestReceived').subscribe();
   }
 
   openAside(){

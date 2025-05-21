@@ -1,0 +1,50 @@
+<div class="container">
+  <header>
+    <h1>Find users</h1>
+    <div class="input-wrapper">
+      <input type="text" id="search" [(ngModel)]="search" placeholder="hello" (input)="filterUsers()">
+      <label for="search">Search</label>
+    </div><!-- input-wrapper -->
+  </header>
+
+  <main>
+    <header>
+      @if(search.trim() === ''){
+        <h1>Users you may know:</h1>
+      }@else if(usersFiltered.length === 0){
+        <h1>User not found</h1>
+      }@else{
+        <h1>Users found:</h1>
+      }
+    </header>
+
+    <div class="sub-container-users">
+      @for(user of usersFiltered; track user.username){
+        <div class="user-filtered-wrapper">
+          <div class="infos-user-wrapper">
+            <div class="icon-user" [ngStyle]="{'background-image': user.icon ? 'url('+ user.icon +')' : 'url(/imgs/userDefalt.png)'}"></div><!-- icon-user -->
+            <div class="username-wrapper">
+              <h3>{{ user.username }}</h3>
+            </div><!-- username-wrapper -->
+          </div><!-- infos-user-wrapper -->
+
+          <button (click)="sendFriendRequest(user)" [ngClass]="pendingFriendshipsSent.includes(user.username) ? ['send-friend-request-wrapper', ''] : ['send-friend-request-wrapper', 'active']" [disabled]="pendingFriendshipsSent.includes(user.username)" [title]="pendingFriendshipsSent.includes(user.username) ? 'friend request sent' : 'send friend request'">
+            @if(pendingFriendshipsSent.includes(user.username)){
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" fill="none"/>
+                <path d="M8 12.5l3 3 5-5" stroke="currentColor"/>
+              </svg>
+            }@else{
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="8.5" cy="7" r="4"/>
+                <line x1="20" y1="8" x2="20" y2="14"/>
+                <line x1="23" y1="11" x2="17" y2="11"/>
+              </svg>
+            }
+          </button><!-- send-friend-request-wrapper -->
+        </div><!-- user-filtered-wrapper -->
+      }
+    </div><!-- sub-container-users -->
+  </main><!-- container-users-filtered -->
+</div><!-- container -->

@@ -7,6 +7,8 @@ const router = Router();
 router.get('/', authMiddleware, UserController.getAllUsers);
 router.post('/', UserController.createUser);
 router.post('/login', UserController.login);
-// router.delete('/:id', authMiddleware, UserController.deleteUser);
+router.put('/send-friend-request', authMiddleware, UserController.sendFriendRequest);
+router.put('/cancel-friend-request', authMiddleware, UserController.cancelFriendRequest);
+//router.delete('/:id', authMiddleware, UserController.deleteUser);
 
 export default router;

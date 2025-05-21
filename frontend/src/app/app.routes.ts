@@ -1,23 +1,30 @@
-import { Routes } from '@angular/router';
 import { CreateUserComponent } from './pages/create-user/create-user.component';
 import { LoginComponent } from './pages/login/login.component';
+import { DummyComponent } from './pages/dummy/dummy.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ChatComponent } from './pages/home/components/chat/chat.component';
 import { SettingsComponent } from './pages/home/components/settings/settings.component';
 import { FindUsersComponent } from './pages/home/components/find-users/find-users.component';
 import { FriendRequestsComponent } from './pages/home/components/friend-requests/friend-requests.component';
-import { guardTokenGuard } from './guard/guardToken/guard-token.guard';
+import { FriendsListComponent } from './pages/home/components/friends-list/friends-list.component';
+import { redirectGuard } from './guards/redirect/redirect.guard';
+import { authdGuard } from './guards/auth/auth-guard.guard';
+import { Routes } from '@angular/router';
+import { removeAuthGuard } from './guards/removeAuth/remove-auth.guard';
+import { FriendRequestSentComponent } from './pages/home/components/friend-request-sent/friend-request-sent.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'create-user', pathMatch: 'full' },
-  { path: 'create-user', component: CreateUserComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent, canActivate: [guardTokenGuard], canActivateChild: [guardTokenGuard], children: [
+  { path: '', component: DummyComponent, canActivate: [redirectGuard], pathMatch: 'full' },
+  { path: 'create-user', title: 'Create User', component: CreateUserComponent, canActivate: [removeAuthGuard] },
+  { path: 'login', title: 'Login', component: LoginComponent, canActivate: [removeAuthGuard] },
+  { path: 'home', component: HomeComponent, canActivate: [authdGuard], canActivateChild: [authdGuard], children: [
     { path: '', redirectTo: 'settings', pathMatch: 'full' },
     { path: 'chat/:id', component: ChatComponent },
-    { path: 'settings', component: SettingsComponent },
-    { path: 'find-users', component: FindUsersComponent },
-    { path: 'friend-requests', component: FriendRequestsComponent }
+    { path: 'settings', title: 'Settings', component: SettingsComponent },
+    { path: 'find-users', title: 'Find Users', component: FindUsersComponent },
+    { path: 'friend-requests', title: 'Friend Requests', component: FriendRequestsComponent },
+    { path: 'friend-request-sent', title: 'Friend Request Sent', component: FriendRequestSentComponent },
+    { path: 'friends-list', title:  'Friends List', component: FriendsListComponent }
   ] },
-  { path: '**', redirectTo: 'login' }
+  { path: '**', redirectTo: 'login', pathMatch: 'full' }
 ];

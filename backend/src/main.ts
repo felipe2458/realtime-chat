@@ -1,18 +1,22 @@
 import express from 'express';
 import http from 'http';
-import { Server as SocketServer } from 'socket.io';
+import { Server } from 'socket.io';
 import cors from 'cors';
 import UserRoute from './Routes/User.route.ts';
 import MessageRoute from './Routes/Message.route.ts';
-import chatHandler from './Sockets/chatHandler.ts';
+import SocketService from './Services/socket.service.ts';
+
 import * as dotenv from 'dotenv';
+import JsonReaderService from './Services/jsonReader.service.ts';
 
 dotenv.config()
 
 const app = express();
 const server = http.createServer(app);
+const port = process.env.PORT || 3000;
 const allowedOrigin = 'http://localhost:4200';
-const io = new SocketServer(server, {
+
+const io = new Server(server, {
     cors: {
         origin: allowedOrigin,
         methods: ['GET', 'POST', 'DELETE', 'PUT'],
@@ -30,9 +34,7 @@ app.use(cors({
 app.use('/api/users', UserRoute);
 app.use('/api/messages', MessageRoute);
 
-chatHandler(io);
-
-const port = process.env.PORT || 3000;
+new SocketService(io, new JsonReaderService('./src/database/users.json'));
 
 server.listen(port, ()=>{
     console.log('Server started on port', port)

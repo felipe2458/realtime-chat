@@ -1,0 +1,127 @@
+.container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container > header{
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-header);
+  color: var(--color-header);
+  font-family: 'Open Sans', sans-serif;
+  justify-content: space-around;
+}
+
+.container > header .input-wrapper{
+  width: 64%;
+  height: 35px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container > header .input-wrapper input{
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: 1px solid var(--color-border-aside-button);
+  border-radius: 10px;
+  background-color: transparent;
+  color: var(--color-header);
+  padding-left: 10px;
+  font-size: 18px;
+}
+
+.container > header .input-wrapper input::placeholder{
+  color: transparent;
+}
+
+.container > header .input-wrapper input:not(:placeholder-shown) ~ label,
+.container > header .input-wrapper input:focus ~ label{
+  opacity: 0;
+}
+
+.container > header .input-wrapper label{
+  position: absolute;
+  left: 10px;
+  font-size: 18px;
+  transition: opacity 0.3s;
+}
+
+.container main{
+  width: 90%;
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+main header{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  color: var(--color-header);
+  font-family: 'Open Sans', sans-serif;
+}
+
+main .sub-container-users{
+  width: 100%;
+  height: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.sub-container-users .user-filtered-wrapper{
+  width: 40%;
+  height: 50px;
+  background-color: var(--bg-recent-chat);
+  padding: 0 20px 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background-color 0.4s;
+  color: var(--color-user-filtered);
+  text-shadow: 0px 0px 2px var(--color-user-filtered), 0px 0px 4px var(--color-user-filtered);
+  font-family: 'Roboto', sans-serif;
+}
+
+.sub-container-users .user-filtered-wrapper:hover{
+  background-color: var(--bg-recent-chat-hover);
+}
+
+.user-filtered-wrapper .infos-user-wrapper{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-filtered-wrapper .infos-user-wrapper .icon-user{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-size: cover;
+}
+
+.user-filtered-wrapper .send-friend-request-wrapper{
+  background-color: transparent;
+  border: none;
+  color: var(--color-user-filtered);
+}
+
+.user-filtered-wrapper .send-friend-request-wrapper.active{
+  cursor: pointer;
+}

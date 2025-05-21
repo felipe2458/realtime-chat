@@ -1,1 +1,19 @@
-<p>friend-requests works!</p>
+<div class="container">
+  <header>
+    <h1>Friends Requests</h1>
+    <div class="input-wrapper">
+      <input type="text" id="search" [(ngModel)]="search" placeholder="hello" (input)="filterRequests()">
+      <label for="search">Search</label>
+    </div><!-- input-wrapper -->
+  </header>
+
+  <main>
+     @if(userLogged.pendingFriendshipsReceived.length === 0){
+       <h1>You have no pending friend requests</h1>
+     }@else{
+      @for(pending of userLogged.pendingFriendshipsReceived; track pending){
+        <h1>{{ pending.username }}</h1>
+      }
+     }
+  </main>
+</div><!-- container -->

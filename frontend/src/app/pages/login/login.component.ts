@@ -15,32 +15,31 @@ export class LoginComponent {
   username: string = '';
   password: string = '';
 
-  enviInfos(e: Event){
+  async enviInfos(e: Event){
+    e.preventDefault();
+
     if(this.username.trim() === '' || this.password.trim() === ''){
       alert('Please fill in all fields');
-      e.preventDefault();
       return;
     }
 
-    this.userService.login({ username: this.username, password: this.password }).subscribe({
-      next: (res)=>{
-        const body = res.body as { token?: string };
-        if(res.status === 200 && body.token){
-          localStorage.setItem('token', body.token);
-          this.router.navigate(['/home']);
-        }
-      },
-      error: (err)=>{
-        if(err.status === 404){
-          alert("User not found");
-          return;
-        }
+    try{
+      const res = await this.userService.login({ username: this.username, password: this.password }).toPromise();
+      const body = res?.body as { token?: string };
 
-        if(err.status === 401){
-          alert("Incorrect password");
-          return;
-        }
+      if(res && res.status === 200 && body.token){
+        localStorage.setItem('token', body.token);
+        this.router.navigate(['/home']);
       }
-    })
+    }catch(err: any){
+      if(err.status === 404){
+        alert('User not found');
+        return;
+      }
+
+      if(err.status === 401){
+        alert('Password incorrect');
+      }
+    }
   }
 }

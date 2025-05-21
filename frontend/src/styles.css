@@ -1,13 +1,20 @@
 :root {
+  /* start home */
   --bg-main: #181c24;
   --bg-aside: #23283b;
   --aside-text-header: #bfc9db;
   --bg-recent-chat: #474d6b;
   --bg-recent-chat-hover: #2d3656;
-  --color-recent-chat-username: #f8fafc; 
+  --color-recent-chat-username: #f8fafc;
   --bg-container-links: #1a1d29;
   --bg-container-links-hover: #2a3147;
   --color-border-aside-button: #4f5d75;
+  /* end home */
+  /* start find-users*/
+  --bg-header: #242c3a;
+  --color-header: wheat;
+  --color-user-filtered: #70b99b;
+  /* end find-users*/
 }
 
 *{
