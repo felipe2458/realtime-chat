@@ -1,6 +1,6 @@
 import { Server, Socket } from "socket.io";
 import JsonReaderService from "./jsonReader.service.ts";
-import { User, UserNOPass } from "../interface/interface.ts";
+import { User, UserNoPass } from "../interface/interface.ts";
 import { promises as fs } from 'fs';
 
 export default class SocketService{
@@ -27,11 +27,25 @@ export default class SocketService{
             })
 
             socket.on('friendRequestGET', async (data: { to: User, from: User, wasSentFriendRequest: boolean })=>{
-                const users: User[] = await this.jsonReaderService.readJson();
-                const user: UserNOPass = users.filter(u => u.username === data.to.username)[0];
+                const users: UserNoPass[] = await this.jsonReaderService.readJson();
+                const user: UserNoPass = users.filter(u => u.username === data.to.username)[0];
 
                 this.io.to(user.idSocket).emit('friendRequestReceived', data);
             })
+
+            socket.on('removeFriendRequest', async (data: { to: UserNoPass, from: UserNoPass, isErro: boolean })=>{
+                const users: UserNoPass[] = await this.jsonReaderService.readJson();
+                const user: UserNoPass = users.filter(u => u.username === data.to.username)[0];
+
+                this.io.to(user.idSocket).emit('removeFriendRequest', data);
+            });
+
+            socket.on('friendRequestAccepted', async (data: { to: UserNoPass, from: UserNoPass })=>{
+                const users: UserNoPass[] = await this.jsonReaderService.readJson();
+                const user: UserNoPass = users.filter(u => u.username === data.to.username)[0];
+
+                this.io.to(user.idSocket).emit('friendRequestAccepted', data);
+            });
 
             /*socket.on('disconnect', async ()=>{
                 console.log('socketID', socket.id);

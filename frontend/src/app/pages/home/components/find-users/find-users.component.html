@@ -7,7 +7,7 @@
     </div><!-- input-wrapper -->
   </header>
 
-  <main>
+  <div class="container-users-filtered">
     <header>
       @if(search.trim() === ''){
         <h1>Users you may know:</h1>
@@ -22,17 +22,39 @@
       @for(user of usersFiltered; track user.username){
         <div class="user-filtered-wrapper">
           <div class="infos-user-wrapper">
-            <div class="icon-user" [ngStyle]="{'background-image': user.icon ? 'url('+ user.icon +')' : 'url(/imgs/userDefalt.png)'}"></div><!-- icon-user -->
+            <div class="icon-user" [ngStyle]="{'background-image': 'url('+ (user.icon ? user.icon : '/imgs/userDefalt.png') + ')'}"></div><!-- icon-user -->
             <div class="username-wrapper">
               <h3>{{ user.username }}</h3>
             </div><!-- username-wrapper -->
           </div><!-- infos-user-wrapper -->
 
-          <button (click)="sendFriendRequest(user)" [ngClass]="pendingFriendshipsSent.includes(user.username) ? ['send-friend-request-wrapper', ''] : ['send-friend-request-wrapper', 'active']" [disabled]="pendingFriendshipsSent.includes(user.username)" [title]="pendingFriendshipsSent.includes(user.username) ? 'friend request sent' : 'send friend request'">
+          <button (click)="sendFriendRequest(user)"
+          [ngClass]="pendingFriendshipsSent.includes(user.username) ? ['send-friend-request-wrapper', ''] : ['send-friend-request-wrapper', 'active']"
+          [disabled]="pendingFriendshipsSent.includes(user.username) ||
+          pendingFriendshipsReceived.includes(user.username) ||
+          friends.includes(user.username) ||
+          friendRequestsDeclinedSent.includes(user.username)"
+          [title]="getFriendRequestTitle(user.username)">
             @if(pendingFriendshipsSent.includes(user.username)){
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                 <circle cx="12" cy="12" r="10" stroke="currentColor" fill="none"/>
                 <path d="M8 12.5l3 3 5-5" stroke="currentColor"/>
+              </svg>
+            }@else if(pendingFriendshipsReceived.includes(user.username)){
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" stroke="#d1b01d" fill="none"/>
+                <path d="M8 12.5l3 3 5-5" stroke="#d1b01d"/>
+              </svg>
+            }@else if (friends.includes(user.username)){
+              <a [routerLink]="['/home/chat', user.username]" style="color: inherit;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+              </a>
+            }@else if(friendRequestsDeclinedSent.includes(user.username)){
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="#cc355c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>
               </svg>
             }@else{
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
@@ -46,5 +68,5 @@
         </div><!-- user-filtered-wrapper -->
       }
     </div><!-- sub-container-users -->
-  </main><!-- container-users-filtered -->
+  </div><!-- container-users-filtered -->
 </div><!-- container -->

@@ -1,3 +1,4 @@
+import { AlertService } from './../../services/alert/alert.service';
 import { Component } from '@angular/core';
 import { jwtDecode } from 'jwt-decode';
 import { CommonModule } from '@angular/common';
@@ -18,8 +19,17 @@ export class HomeComponent {
   isAsideOpen: boolean = true;
   recents_chats: any[] = [];
   links: Links[] = [];
+  alertMessage: string | null = null;
 
-  constructor(private getInfosFrontService: GetInfosFrontService, private socketService: SocketService){
+  constructor(private getInfosFrontService: GetInfosFrontService, private socketService: SocketService, private alertService: AlertService){
+    this.alertService.alert$.subscribe(msg => {
+      this.alertMessage = msg;
+
+      setTimeout(()=>{
+        this.alertMessage = null;
+      }, 3000);
+    });
+
     this.getInfosFrontService.getLinks().subscribe(links => {
       this.links = links;
     });
@@ -45,5 +55,9 @@ export class HomeComponent {
     this.isAsideOpen = !this.isAsideOpen;
 
     localStorage.setItem('isAsideOpen', JSON.stringify(this.isAsideOpen));
+  }
+
+  closeAlert(){
+    this.alertService.clear();
   }
 }

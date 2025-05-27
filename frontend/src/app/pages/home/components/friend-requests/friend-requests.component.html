@@ -7,13 +7,30 @@
     </div><!-- input-wrapper -->
   </header>
 
-  <main>
-     @if(userLogged.pendingFriendshipsReceived.length === 0){
+  <div class="container-users-filtered">
+     @if(pendingFriendshipsReceived.length === 0){
        <h1>You have no pending friend requests</h1>
      }@else{
-      @for(pending of userLogged.pendingFriendshipsReceived; track pending){
-        <h1>{{ pending.username }}</h1>
+      @for(pending of pendingFriendshipsReceived; track pending){
+        <div class="user-card-wrapper">
+          <div class="icon-user" [ngStyle]="{ 'background-image': 'url('+ (pending.icon ? pending.icon : '/imgs/userDefalt.png') + ')' }"></div><!-- icon-user -->
+          <div class="name-user"><h2>{{ pending.username }}</h2></div><!-- name-user -->
+          <div class="add-user">
+            <button (click)="acceptFriendRequest(pending)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/>
+                <line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/>
+              </svg>
+            </button>
+
+            <button (click)="rejectFriendRequest(pending)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>
+              </svg>
+            </button>
+          </div><!-- add-user -->
+        </div><!-- user-card-wrapper -->
       }
      }
-  </main>
+  </div>
 </div><!-- container -->

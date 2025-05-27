@@ -5,8 +5,8 @@ export interface User{
     friends: { username: string }[];
     pendingFriendshipsReceived: { id: number, username: string }[];
     pendingFriendshipsSent: { id: number, username: string }[];
-    friendRequestsSentDeclined: { id: number, username: string }[],
+    friendRequestsDeclined: { sent: { id: number, username: string }[], received: { id: number, username: string }[] },
     idSocket: string;
 }
 
-export interface UserNOPass extends Omit<User, 'password'>{}
+export interface UserNoPass extends Omit<User, 'password'>{}

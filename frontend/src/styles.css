@@ -9,12 +9,16 @@
   --bg-container-links: #1a1d29;
   --bg-container-links-hover: #2a3147;
   --color-border-aside-button: #4f5d75;
+  --color-alert-message: #26006b;
   /* end home */
   /* start find-users*/
   --bg-header: #242c3a;
   --color-header: wheat;
   --color-user-filtered: #70b99b;
   /* end find-users*/
+  /* start friend-requests */
+  --color-reject-button: #cc355c;
+  /* end friend-requests */
 }
 
 *{

@@ -56,7 +56,7 @@
   transition: opacity 0.3s;
 }
 
-.container main{
+.container .container-users-filtered{
   width: 90%;
   height: 75%;
   display: flex;
@@ -64,7 +64,7 @@
   justify-content: space-around;
 }
 
-main header{
+.container-users-filtered header{
   width: 100%;
   height: 50px;
   display: flex;
@@ -73,7 +73,7 @@ main header{
   font-family: 'Open Sans', sans-serif;
 }
 
-main .sub-container-users{
+.container-users-filtered .sub-container-users{
   width: 100%;
   height: 80%;
   display: flex;

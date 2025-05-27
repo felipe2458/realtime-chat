@@ -11,7 +11,6 @@ import { redirectGuard } from './guards/redirect/redirect.guard';
 import { authdGuard } from './guards/auth/auth-guard.guard';
 import { Routes } from '@angular/router';
 import { removeAuthGuard } from './guards/removeAuth/remove-auth.guard';
-import { FriendRequestSentComponent } from './pages/home/components/friend-request-sent/friend-request-sent.component';
 
 export const routes: Routes = [
   { path: '', component: DummyComponent, canActivate: [redirectGuard], pathMatch: 'full' },
@@ -23,7 +22,6 @@ export const routes: Routes = [
     { path: 'settings', title: 'Settings', component: SettingsComponent },
     { path: 'find-users', title: 'Find Users', component: FindUsersComponent },
     { path: 'friend-requests', title: 'Friend Requests', component: FriendRequestsComponent },
-    { path: 'friend-request-sent', title: 'Friend Request Sent', component: FriendRequestSentComponent },
     { path: 'friends-list', title:  'Friends List', component: FriendsListComponent }
   ] },
   { path: '**', redirectTo: 'login', pathMatch: 'full' }

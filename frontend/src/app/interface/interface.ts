@@ -8,6 +8,7 @@ export interface UserDB extends Omit<UserData, 'password'>{
   friends: { id: number, username: string }[];
   pendingFriendshipsReceived: { id: number, username: string }[];
   pendingFriendshipsSent: { id: number, username: string }[];
+  friendRequestsDeclined: { sent: { id: number, username: string }[], received: { id: number, username: string }[] };
   idSocket: string;
   icon: string;
 }

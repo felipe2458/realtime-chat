@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { UserData } from '../../interface/interface';
 import { HttpHeaders } from '@angular/common/http';
 import { jwtDecode } from 'jwt-decode';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -41,10 +42,22 @@ export class UserService {
   }
 
   sendFriendRequest(userFriend: string){
-    return this.http.put(`${this.apiUrl}/send-friend-request`, { loggedInUser: this.user.username, userFriend }, { headers: this.headers, observe: 'response' });
+    return this.http.put(`${this.apiUrl}/send-friend-request`,
+      { loggedInUser: this.user.username, userFriend }, { headers: this.headers, observe: 'response' });
   }
 
   cancelFriendRequest(userFriend: string){
-    return this.http.put(`${this.apiUrl}/cancel-friend-request`, { loggedInUser: this.user.username, userFriend }, { headers: this.headers, observe: 'response' });
+    return this.http.put(`${this.apiUrl}/cancel-friend-request`,
+      { loggedInUser: this.user.username, userFriend }, { headers: this.headers, observe: 'response' });
+  }
+
+  acceptFriendRequest(userFriend: string): Observable<HttpResponse<{ message: string }>>{
+    return this.http.put<{ message: string }>(`${this.apiUrl}/accept-friend-request`,
+      { loggedInUser: this.user.username, userFriend }, { headers: this.headers, observe: 'response' });
+  }
+
+  rejectFriendRequest(userFriend: string): Observable<HttpResponse<{ message: string }>>{
+    return this.http.put<{ message: string }>(`${this.apiUrl}/reject-friend-request`,
+      { loggedInUser: this.user.username, userFriend }, { headers: this.headers, observe: 'response' });
   }
 }
