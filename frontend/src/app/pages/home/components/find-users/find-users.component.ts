@@ -23,14 +23,13 @@ export class FindUsersComponent {
   pendingFriendshipsReceived: string[] = [];
   friends: string[] = [];
   friendRequestsDeclinedSent: string[] = [];
+  friendRemoved: string[] = [];
+  removedByFriend: string[] = [];
 
   constructor(private userService: UserService, private socketService: SocketService, private alertService: AlertService){
     this.userService.getAllUsers().subscribe(res => {
-      const token = localStorage.getItem('token') || '';
-      const decoded: { username: string } = jwtDecode(token);
-
-      this.users = (res.body as UserDB[]).filter(user => user.username !== decoded.username);
-      this.userLogged = (res.body as UserDB[]).filter(user => user.username === decoded.username)[0];
+      this.users = (res.body as UserDB[]).filter(user => user.username !== this.userService.user.username);
+      this.userLogged = (res.body as UserDB[]).filter(user => user.username === this.userService.user.username)[0];
 
       this.pendingFriendshipsSent = this.userLogged.pendingFriendshipsSent.map(user => user.username);
       this.pendingFriendshipsReceived = this.userLogged.pendingFriendshipsReceived.map(user => user.username);
@@ -38,6 +37,10 @@ export class FindUsersComponent {
       this.friends = this.userLogged.friends.map(user => user.username);
 
       this.friendRequestsDeclinedSent = this.userLogged.friendRequestsDeclined.sent.map(user => user.username);
+
+      this.friendRemoved = this.userLogged.friendRemoved.map(user => user.username);
+
+      this.removedByFriend = this.userLogged.removedByFriend.map(user => user.username);
 
       const userCopy = [...this.users];
       this.usersFiltered = [];
@@ -54,8 +57,10 @@ export class FindUsersComponent {
           const isInReceived = this.userLogged.pendingFriendshipsReceived.some(user => user.username === candidate.username);
           const isInSent = this.userLogged.pendingFriendshipsSent.some(user => user.username === candidate.username);
           const isFriend = this.userLogged.friends.some(user => user.username === candidate.username);
+          const isRemovedByFriend = this.userLogged.removedByFriend.some(user => user.username === candidate.username);
+          const isFriendRemoved = this.userLogged.friendRemoved.some(user => user.username === candidate.username);
 
-          if(!isInReceived && !isInSent && !isFriend){
+          if(!isInReceived && !isInSent && !isFriend && !isRemovedByFriend && !isFriendRemoved){
             drawnUser = candidate;
             userCopy.splice(drawNumber, 1);
             break;
@@ -71,7 +76,7 @@ export class FindUsersComponent {
         this.usersFiltered.push(drawnUser);
       }
 
-      this.socketService.listenEvent('removeFriendRequest').subscribe((res: { to: UserDB, from: UserDB, isErro: boolean }) => {
+      this.socketService.listenEvent('removeFriendRequest').subscribe((res: { to: UserDB, from: UserDB, isErro: boolean })=>{
         if(res.isErro){
           this.pendingFriendshipsSent = this.pendingFriendshipsSent.filter(u => u !== res.from.username);
           return;
@@ -81,10 +86,15 @@ export class FindUsersComponent {
         this.pendingFriendshipsSent = this.pendingFriendshipsSent.filter(u => u !== res.from.username);
       });
 
-      this.socketService.listenEvent('friendRequestAccepted').subscribe((res: { to: UserDB, from: UserDB }) => {
+      this.socketService.listenEvent('friendRequestAccepted').subscribe((res: { to: UserDB, from: UserDB })=>{
         this.pendingFriendshipsSent = this.pendingFriendshipsSent.filter(u => u !== res.from.username);
         this.friends.push(res.from.username);
       });
+
+      this.socketService.listenEvent('removeFriend').subscribe((res: { to: UserDB, from: UserDB })=>{
+        this.friends = this.friends.filter(u => u !== res.from.username);
+        this.removedByFriend.push(res.from.username);
+      })
     });
   }
 
@@ -92,6 +102,8 @@ export class FindUsersComponent {
     if(this.pendingFriendshipsReceived.includes(user)) return 'friend request received';
     if(this.pendingFriendshipsSent.includes(user)) return 'friend request sent';
     if(this.friendRequestsDeclinedSent.includes(user)) return 'friend request declined';
+    if(this.friendRemoved.includes(user)) return 'You have removed this friend from your list';
+    if(this.removedByFriend.includes(user)) return 'This friend removed you from their friends list';
     if(this.friends.includes(user)) return 'go to chat';
     return 'send friend request';
   }

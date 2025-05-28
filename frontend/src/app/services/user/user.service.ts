@@ -46,8 +46,8 @@ export class UserService {
       { loggedInUser: this.user.username, userFriend }, { headers: this.headers, observe: 'response' });
   }
 
-  cancelFriendRequest(userFriend: string){
-    return this.http.put(`${this.apiUrl}/cancel-friend-request`,
+  removeFriend(userFriend: string){
+    return this.http.put(`${this.apiUrl}/remove-friend`,
       { loggedInUser: this.user.username, userFriend }, { headers: this.headers, observe: 'response' });
   }
 

@@ -1,1 +1,47 @@
-<p>friends-list works!</p>
+<div class="container">
+  <header>
+    <h1>Find Friends</h1>
+    <div class="input-wrapper">
+      <input type="text" id="search" [(ngModel)]="search" placeholder="hello" (input)="filterUsers()">
+      <label for="search">Search</label>
+    </div><!-- input-wrapper -->
+  </header>
+
+  <div class="container-friends">
+    <header>
+      @if(friendsList.length === 0){
+        <h1>Friends not found</h1>
+      }@else if(friendsListCopy.length > 0){
+        <h1>You friends:</h1>
+      }@else{
+        <h1>You not have friends yet!</h1>
+      }
+    </header>
+
+    <div class="friends-wrapper">
+      @for(friend of friendsList; track friend.username){
+        <div class="friend">
+          <div class="icon-friend" [ngStyle]="{ 'background-image': 'url('+ (friend.icon ? friend.icon : '/imgs/userDefalt.png') + ')' }"></div><!-- icon-friend -->
+          <div class="name-friend"><h3>{{ friend.username }}</h3></div><!-- name-friend -->
+          <div class="options-wrapper">
+            <div #optionsRef class="options" [ngStyle]="{ 'display': friend.options ? 'flex' : 'none' }">
+              <button (click)="toggleOptions($event, friend)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 6L6 18"/><path d="M6 6l12 12"/>
+                </svg>
+              </button>
+              <a [routerLink]="['/home/chat', friend.username]">Go to chat</a>
+              <button (click)="removeFriend(friend)">Remove friend</button>
+            </div><!-- options -->
+
+            <button title="Options" (click)="toggleOptions($event, friend)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.14 12.94c.04-.31.06-.63.06-.94s-.02-.63-.06-.94l2.03-1.58a.5.5 0 0 0 .11-.65l-1.92-3.32a.5.5 0 0 0-.61-.22l-2.39.96a6.98 6.98 0 0 0-1.62-.94l-.36-2.54a.5.5 0 0 0-.5-.42h-3.84a.5.5 0 0 0-.5.42l-.36 2.54a6.98 6.98 0 0 0-1.62.94l-2.39-.96a.5.5 0 0 0-.61.22L2.72 8.83a.5.5 0 0 0 .11.65l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58a.5.5 0 0 0-.11.65l1.92 3.32a.5.5 0 0 0 .61.22l2.39-.96c.49.4 1.03.71 1.62.94l.36 2.54a.5.5 0 0 0 .5.42h3.84a.5.5 0 0 0 .5-.42l.36-2.54a6.98 6.98 0 0 0 1.62-.94l2.39.96a.5.5 0 0 0 .61-.22l1.92-3.32a.5.5 0 0 0-.11-.65l-2.03-1.58zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/>
+              </svg>
+            </button>
+          </div><!-- options -->
+        </div><!-- friend -->
+      }
+    </div><!-- friends-wrapper -->
+  </div><!-- container-friends -->
+</div><!-- container -->

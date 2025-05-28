@@ -1,0 +1,164 @@
+.container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container > header{
+  width: 100%;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-header);
+  color: var(--color-header);
+  font-family: 'Open Sans', sans-serif;
+  justify-content: space-around;
+}
+
+.container > header .input-wrapper{
+  width: 64%;
+  height: 35px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container > header .input-wrapper input{
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: 1px solid var(--color-border-aside-button);
+  border-radius: 10px;
+  background-color: transparent;
+  color: var(--color-header);
+  padding-left: 10px;
+  font-size: 18px;
+}
+
+.container > header .input-wrapper input::placeholder{
+  color: transparent;
+}
+
+.container > header .input-wrapper input:not(:placeholder-shown) ~ label,
+.container > header .input-wrapper input:focus ~ label{
+  opacity: 0;
+}
+
+.container > header .input-wrapper label{
+  position: absolute;
+  left: 10px;
+  font-size: 18px;
+  transition: opacity 0.3s;
+}
+
+.container .container-friends{
+  width: 90%;
+  height: calc(100% - 100px);
+}
+
+.container .container-friends header{
+  width: 100%;
+  padding: 1rem;
+  color: var(--color-header);
+  font-family: "Open Sans", sans-serif;
+}
+
+.container .container-friends .friends-wrapper{
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 20px;
+}
+
+.container .container-friends .friends-wrapper .friend{
+  width: 300px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: var(--bg-recent-chat);
+  border-radius: 10px;
+}
+
+.container .container-friends .friends-wrapper .friend .icon-friend{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-size: cover;
+}
+
+.container .container-friends .friends-wrapper .friend .name-friend h3{
+  font-family: 'Open Sans', sans-serif;
+  color: var(--color-user-filtered);
+  text-shadow: 0 0 5px var(--color-user-filtered), 0 0 10px var(--color-user-filtered);
+  font-size: 24px;
+  margin-left: 10px;
+}
+
+.container .container-friends .friends-wrapper .friend .options-wrapper{
+  position: relative;
+}
+
+.container .container-friends .friends-wrapper .friend .options-wrapper .options{
+  display: none;
+  position: absolute;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: end;
+  width: 100px;
+  height: 60px;
+  z-index: 2;
+  top: -70%;
+}
+
+.container .container-friends .friends-wrapper .friend .options-wrapper .options button:first-child{
+  width: 20px;
+  height: 15px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  position: relative;
+  top: 10%;
+}
+
+.container .container-friends .friends-wrapper .friend .options-wrapper .options button,
+.container .container-friends .friends-wrapper .friend .options-wrapper .options a{
+  width: 100%;
+  height: 48%;
+  background-color: var(--color-alert-message);
+  filter: none;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  font-weight: 700;
+  font-size: 11px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.container .container-friends .friends-wrapper .friend .options-wrapper .options a{
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-recent-chat-username) 20%, black);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.container .container-friends .friends-wrapper .friend .options-wrapper button,
+.container .container-friends .friends-wrapper .friend .options-wrapper a{
+  background-color: transparent;
+  border: none;
+  color: var(--color-user-filtered);
+  filter: drop-shadow(0 0 5px var(--color-user-filtered));
+  cursor: pointer;
+}

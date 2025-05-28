@@ -15,25 +15,13 @@ import { AlertService } from '../../../../services/alert/alert.service';
 })
 export class FriendRequestsComponent {
   search: string = '';
-  userLogged: UserDB = {
-    id: 0,
-    username: '',
-    friends: [],
-    pendingFriendshipsSent: [],
-    pendingFriendshipsReceived: [],
-    friendRequestsDeclined: { sent: [], received: [] },
-    idSocket: '',
-    icon: ''
-  };
+  userLogged: UserDB = {} as UserDB;
   pendingFriendshipsReceived: UserDB[] = [];
   pendingFriendShipReceivedCopy: UserDB[] = [];
 
   constructor(private userService: UserService, private socketService: SocketService, private alertService: AlertService){
     this.userService.getAllUsers().subscribe(res => {
-      const token = localStorage.getItem('token') || '';
-      const decoded: { username: string } = jwtDecode(token);
-
-      this.userLogged = (res.body as UserDB[]).filter(user => user.username === decoded.username)[0];
+      this.userLogged = (res.body as UserDB[]).filter(user => user.username === this.userService.user.username)[0];
 
       const ordersReceived: string[] = this.userLogged.pendingFriendshipsReceived.map(user => user.username);
 

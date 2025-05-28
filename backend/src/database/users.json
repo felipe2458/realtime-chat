@@ -1,0 +1,800 @@
+[
+  {
+    "id": 1,
+    "username": "MOBDOG",
+    "password": "$2b$10$5jquU706ZymqqsM8vnHf7eQxvLjvP6ZJCPp87MhpgSwF3ftdLZNX.",
+    "friends": [
+      {
+        "username": "NoobMaster69"
+      }
+    ],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [
+      {
+        "id": 52,
+        "username": "NoobMaster69"
+      }
+    ],
+    "removedByFriend": [],
+    "idSocket": "Kd1NCdqfsF-JWnGSAAAz"
+  },
+  {
+    "id": 2,
+    "username": "Mario",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 3,
+    "username": "Luigi",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 4,
+    "username": "Peach",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 5,
+    "username": "Bowser",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 6,
+    "username": "Link",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 7,
+    "username": "Zelda",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 8,
+    "username": "Ganondorf",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 9,
+    "username": "Samus",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 10,
+    "username": "MasterChief",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 11,
+    "username": "Cortana",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 12,
+    "username": "Kratos",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 13,
+    "username": "Atreus",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 14,
+    "username": "LaraCroft",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 15,
+    "username": "NathanDrake",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 16,
+    "username": "Sonic",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 17,
+    "username": "Tails",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 18,
+    "username": "Knuckles",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 19,
+    "username": "Shadow",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 20,
+    "username": "Cloud",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 21,
+    "username": "Sephiroth",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 22,
+    "username": "Tifa",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 23,
+    "username": "Barret",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 24,
+    "username": "Aerith",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 25,
+    "username": "Geralt",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 26,
+    "username": "Ciri",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 27,
+    "username": "Yennefer",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 28,
+    "username": "Triss",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 29,
+    "username": "Dandelion",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 30,
+    "username": "Ellie",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 31,
+    "username": "Joel",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 32,
+    "username": "Abby",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 33,
+    "username": "Tommy",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 34,
+    "username": "Dina",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 35,
+    "username": "Aloy",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 36,
+    "username": "Ezio",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 37,
+    "username": "Altair",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 38,
+    "username": "Connor",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 39,
+    "username": "Desmond",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 40,
+    "username": "ArthurMorgan",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 41,
+    "username": "JohnMarston",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 42,
+    "username": "Dutch",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 43,
+    "username": "Sadie",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 44,
+    "username": "Micah",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 45,
+    "username": "JillValentine",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 46,
+    "username": "LeonKennedy",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 47,
+    "username": "ChrisRedfield",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 48,
+    "username": "ClaireRedfield",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 49,
+    "username": "AdaWong",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 50,
+    "username": "SolidSnake",
+    "password": "$2b$10$hash",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": ""
+  },
+  {
+    "id": 51,
+    "username": "felipe_e2458",
+    "password": "$2b$10$57VBJOP28qMnh5S11NX0YO..cP84jajPog2gkpKLF/x.h7GJ4uF2C",
+    "friends": [],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [],
+    "idSocket": "arYIQ5KUr66tgAplAAAH"
+  },
+  {
+    "id": 52,
+    "username": "NoobMaster69",
+    "password": "$2b$10$3rU2iFn9XzFcChGz2gY4POBszLVd85Yrx5N/4TPu3fQgg7mbvQxU2",
+    "friends": [
+      {
+        "username": "MOBDOG"
+      }
+    ],
+    "pendingFriendshipsReceived": [],
+    "pendingFriendshipsSent": [],
+    "friendRequestsDeclined": {
+      "sent": [],
+      "received": []
+    },
+    "friendRemoved": [],
+    "removedByFriend": [
+      {
+        "id": 1,
+        "username": "MOBDOG"
+      }
+    ],
+    "idSocket": "1vFx6YXePAbnB_sfAAAx"
+  }
+]

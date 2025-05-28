@@ -1,6 +1,6 @@
 import { Server, Socket } from "socket.io";
-import JsonReaderService from "./jsonReader.service.ts";
-import { User, UserNoPass } from "../interface/interface.ts";
+import JsonReaderService from "../jsonReader.service.ts";
+import { User, UserNoPass } from "../../interface/interface.ts";
 import { promises as fs } from 'fs';
 
 export default class SocketService{
@@ -39,6 +39,16 @@ export default class SocketService{
 
                 this.io.to(user.idSocket).emit('removeFriendRequest', data);
             });
+
+            socket.on('removeFriend', async (data: { to: UserNoPass, from: UserNoPass })=>{
+                // { from: friend-request.component, to: find-user.component }
+                // { from: friend-list.component of userLogged, to: ['friend-list.component of friendRemoved', 'find-user.component of friendRemoved'] }
+
+                const users: UserNoPass[] = await this.jsonReaderService.readJson();
+                const user: UserNoPass = users.filter(u => u.username === data.to.username)[0];
+
+                this.io.to(user.idSocket).emit('removeFriend', data)
+            })
 
             socket.on('friendRequestAccepted', async (data: { to: UserNoPass, from: UserNoPass })=>{
                 const users: UserNoPass[] = await this.jsonReaderService.readJson();

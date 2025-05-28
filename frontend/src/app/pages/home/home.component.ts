@@ -1,5 +1,5 @@
 import { AlertService } from './../../services/alert/alert.service';
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { jwtDecode } from 'jwt-decode';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
@@ -49,6 +49,14 @@ export class HomeComponent {
     this.socketService.sendEvent('username', this.name);
 
     this.socketService.listenEvent('friendRequestReceived').subscribe();
+  }
+
+  @HostListener('window:keydown', ['$event'])
+  handleKeyBoardEvent(e: KeyboardEvent){
+    if(e.ctrlKey && e.key === 'b'){
+      e.preventDefault();
+      this.openAside();
+    }
   }
 
   openAside(){

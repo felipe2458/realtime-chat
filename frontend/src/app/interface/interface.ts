@@ -9,8 +9,14 @@ export interface UserDB extends Omit<UserData, 'password'>{
   pendingFriendshipsReceived: { id: number, username: string }[];
   pendingFriendshipsSent: { id: number, username: string }[];
   friendRequestsDeclined: { sent: { id: number, username: string }[], received: { id: number, username: string }[] };
+  friendRemoved: { username: string }[];
+  removedByFriend: { username: string }[];
   idSocket: string;
   icon: string;
+}
+
+export interface UserDBOptions extends UserDB{
+  options: boolean;
 }
 
 export interface Links{

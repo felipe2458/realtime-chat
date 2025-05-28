@@ -4,7 +4,7 @@ import { Server } from 'socket.io';
 import cors from 'cors';
 import UserRoute from './Routes/User.route.ts';
 import MessageRoute from './Routes/Message.route.ts';
-import SocketService from './Services/socket.service.ts';
+import SocketService from './Services/Socket.Io/socket.service.ts';
 
 import * as dotenv from 'dotenv';
 import JsonReaderService from './Services/jsonReader.service.ts';
